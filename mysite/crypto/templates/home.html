@@ -2,23 +2,31 @@
 
 {% block content %}
 
-    <div class="container">
-        <div class="row">
-            {% for x in api.Data %}
-            <div class="col-sm"
-            <div class="card" style="width: 18rem;">
-              <img src="{{ x.imageurl }}" class="card-img-top" alt="{{ x.source }}">
-              <div class="card-body">
-                <h5 class="card-title">{{ x.title }}</h5>
-                <p class="card-text">{{ x.body }}</p>
-                <a href="{{ x.url }}" class="btn btn-secondary">Read More...</a>
-              </div>
-            </div>
-        </div>
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to the A Lab!</h1>
+  <p class="lead">Hello World and everybody there!</p>
+  <hr class="my-4">
+  <p>Can it be easier?</p>
+  <a class="btn btn-secondary btn-sm" href="#" role="button">A Lab here</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for x in api.Data %}
+        <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{ x.imageurl }}" alt="{{ x.source }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ x.title }}</h5>
+            <p class="card-text">{{ x.body }}</p>
+            <a href="{{ x.url }}" class="btn btn-secondary">Read More...</a>
+          </div>
         </div>
         <br>
     </div>
 {% endfor %}
+</div>
+</div>
 
 {{ api.Data }}
 {% endblock %}
