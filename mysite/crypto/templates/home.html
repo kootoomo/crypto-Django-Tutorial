@@ -2,25 +2,36 @@
 
 {% block content %}
 
-{% for key, value in price.DISPLAY.items %}
-    <strong>Name:</strong> {{ key }}<br>
-    <strong>Price: </strong>{{ value.USD.PRICE }}<br>
-    <strong>Daily High: </strong>{{ value.USD.HIGHDAY }}<br>
-    <strong>Daily Low: </strong>{{ value.USD.LOWDAY }}<br>
-    <strong>Market Cap: </strong>{{ value.USD.MKTCAP }}<br>
-<hr><br>
-{% endfor %}
-
-<br><br>
-
-{{ price.DISPLAY }}
 <div class="jumbotron">
   <h1 class="display-4">Welcome to the A Lab!</h1>
   <p class="lead">Hello World and everybody there!</p>
-  <hr class="my-4">
-  <p>Can it be easier?</p>
-  <a class="btn btn-secondary btn-sm" href="#" role="button">A Lab here</a>
 </div>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">24h High</th>
+      <th scope="col">24h Low</th>
+      <th scope="col">Market Cap</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for key, value in price.DISPLAY.items %}
+    <tr>
+      <td>{{ key }}</td>
+      <td>{{ value.USD.PRICE }}</td>
+      <td>{{ value.USD.HIGHDAY }}</td>
+      <td>{{ value.USD.LOWDAY }}</td>
+      <td>{{ value.USD.MKTCAP }}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+<br><br>
+<!-- {{ price.DISPLAY }} -->
 
 <div class="container">
     <div class="row">
