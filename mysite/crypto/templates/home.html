@@ -2,6 +2,18 @@
 
 {% block content %}
 
+{% for key, value in price.DISPLAY.items %}
+    <strong>Name:</strong> {{ key }}<br>
+    <strong>Price: </strong>{{ value.USD.PRICE }}<br>
+    <strong>Daily High: </strong>{{ value.USD.HIGHDAY }}<br>
+    <strong>Daily Low: </strong>{{ value.USD.LOWDAY }}<br>
+    <strong>Market Cap: </strong>{{ value.USD.MKTCAP }}<br>
+<hr><br>
+{% endfor %}
+
+<br><br>
+
+{{ price.DISPLAY }}
 <div class="jumbotron">
   <h1 class="display-4">Welcome to the A Lab!</h1>
   <p class="lead">Hello World and everybody there!</p>
@@ -13,20 +25,20 @@
 <div class="container">
     <div class="row">
         {% for x in api.Data %}
-        <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{ x.imageurl }}" alt="{{ x.source }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ x.title }}</h5>
-            <p class="card-text">{{ x.body }}</p>
-            <a href="{{ x.url }}" class="btn btn-secondary">Read More...</a>
-          </div>
-        </div>
-        <br>
+            <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ x.imageurl }}" alt="{{ x.source }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ x.title }}</h5>
+                <p class="card-text">{{ x.body }}</p>
+                <a href="{{ x.url }}" class="btn btn-secondary">Read More...</a>
+              </div>
+            </div>
+            <br>
+            </div>
+        {% endfor %}
     </div>
-{% endfor %}
-</div>
 </div>
 
-{{ api.Data }}
+<!-- {{ api.Data }} -->
 {% endblock %}
